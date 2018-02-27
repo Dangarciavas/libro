@@ -78,5 +78,29 @@ public class ConjuntoLibro {
       return mayorCalificacion;
     }
     
+    public Libro buscarMenorCalificado(){
+    Libro menorCalificacion = null;
+    for(int i=0;i<20;i++){
+        if(this.libros[i]!=null && menorCalificacion == null){
+            menorCalificacion = this.libros[i];
+            }else{
+            if(this.libros[i]!= null && this.libros[i].getCalificacion() < menorCalificacion.getCalificacion()){
+                menorCalificacion=this.libros[i];                
+                }        
+            }       
+        } 
+        return menorCalificacion;
+    }
     
+    
+    public boolean calificarLibro(String titulo, int valor){
+    boolean temp = false;
+        for (int i = 0; i < 20; i++) {
+            if(this.libros[i]!= null && this.libros[i].getTitulo().equals(titulo)){
+            this.libros[i].setCalificacion(valor);
+            temp = true;
+            }          
+        }  
+    return temp;    
+    }   
 }
